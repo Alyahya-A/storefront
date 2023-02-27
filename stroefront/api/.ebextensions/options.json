@@ -1,0 +1,42 @@
+[
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "NODE_ENV",
+    "Value": "production"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "POSTGRES_HOST",
+    "Value": "database-1.cumuo25hw1ef.us-east-1.rds.amazonaws.com"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "POSTGRES_PORT",
+    "Value": "5432"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "POSTGRES_DB",
+    "Value": "storefront"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "POSTGRES_USER",
+    "Value": "postgres"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "POSTGRES_PASSWORD",
+    "Value": "Aa123456"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "JWT_SECRET",
+    "Value": "97D17B58182C4EE9E113E74ABF9E572680D0D898525F2208D7DD191EBFDBF326"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "SaltRounds",
+    "Value": "10"
+  }
+]

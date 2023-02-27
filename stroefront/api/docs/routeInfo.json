@@ -1,0 +1,167 @@
+{
+    "routes": [
+        {
+            "controller": "UserController",
+            "endpoints": [
+                {
+                    "route": "GET /users/"
+                },
+                {
+                    "route": "GET /users/:id",
+                    "args": [
+                        "@requestParam id"
+                    ]
+                },
+                {
+                    "route": "POST /users/",
+                    "args": [
+                        "@requestBody undefined"
+                    ]
+                },
+                {
+                    "route": "DELETE /users/:id",
+                    "args": [
+                        "@requestParam id"
+                    ]
+                }
+            ]
+        },
+        {
+            "controller": "TokenController",
+            "endpoints": [
+                {
+                    "route": "POST /token/",
+                    "args": [
+                        "@requestBody undefined"
+                    ]
+                }
+            ]
+        },
+        {
+            "controller": "StatusController",
+            "endpoints": [
+                {
+                    "route": "GET /status/"
+                },
+                {
+                    "route": "GET /status/:id",
+                    "args": [
+                        "@requestParam id"
+                    ]
+                },
+                {
+                    "route": "POST /status/",
+                    "args": [
+                        "@requestBody undefined"
+                    ]
+                },
+                {
+                    "route": "DELETE /status/:id",
+                    "args": [
+                        "@requestParam id"
+                    ]
+                }
+            ]
+        },
+        {
+            "controller": "ProductController",
+            "endpoints": [
+                {
+                    "route": "GET /products/"
+                },
+                {
+                    "route": "GET /products/:id",
+                    "args": [
+                        "@requestParam id"
+                    ]
+                },
+                {
+                    "route": "POST /products/",
+                    "args": [
+                        "@requestBody undefined"
+                    ]
+                },
+                {
+                    "route": "DELETE /products/:id",
+                    "args": [
+                        "@requestParam id"
+                    ]
+                }
+            ]
+        },
+        {
+            "controller": "OrderController",
+            "endpoints": [
+                {
+                    "route": "GET /orders/"
+                },
+                {
+                    "route": "GET /orders/completed"
+                },
+                {
+                    "route": "GET /orders/active"
+                },
+                {
+                    "route": "GET /orders/:id",
+                    "args": [
+                        "@requestParam id"
+                    ]
+                },
+                {
+                    "route": "POST /orders/"
+                },
+                {
+                    "route": "DELETE /orders/:id",
+                    "args": [
+                        "@requestParam id"
+                    ]
+                },
+                {
+                    "route": "POST /orders/:orderId/products",
+                    "args": [
+                        "@requestParam orderId",
+                        "@requestBody undefined"
+                    ]
+                },
+                {
+                    "route": "PUT /orders/:orderId/complete",
+                    "args": [
+                        "@requestParam orderId"
+                    ]
+                }
+            ]
+        },
+        {
+            "controller": "CategoryController",
+            "endpoints": [
+                {
+                    "route": "GET /categories/"
+                },
+                {
+                    "route": "GET /categories/:id",
+                    "args": [
+                        "@requestParam id"
+                    ]
+                },
+                {
+                    "route": "POST /categories/",
+                    "args": [
+                        "@requestBody undefined"
+                    ]
+                },
+                {
+                    "route": "DELETE /categories/:id",
+                    "args": [
+                        "@requestParam id"
+                    ]
+                },
+                {
+                    "route": "GET /categories/:categoryId/products",
+                    "args": [
+                        "@requestParam categoryId"
+                    ]
+                }
+            ]
+        }
+    ]
+}
