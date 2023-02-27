@@ -6,18 +6,17 @@ orbs:
   aws-cli: circleci/aws-cli@3.1.1
   # different jobs are calles later in the workflows sections
 jobs:
-  build-and-deploy:
+  build:
     docker:
       # the base image can run most needed actions with orbs
-      - image: "cimg/base:stable"
+      - image: "cimg/node:14.15"
     steps:
       # install node and checkout code
       - node/install:
           node-version: "14.15"
-      - eb/setup
-      - aws-cli/setup
       - checkout
-      # Use root level package.json to install dependencies in the frontend app
+
+      # Installing dependencies in the frontend app
       - run:
           name: Install Front-End Dependencies
           command: |
@@ -27,19 +26,19 @@ jobs:
             echo $(npm --version)
             npm run web:install
 
-      # Install dependencies in the the backend API
+      # Installing dependencies in the the backend API
       - run:
           name: Install API Dependencies
           command: |
             echo npm run api:install
 
-      # Format the frontend prettier
+      # Formating the frontend prettier
       - run:
           name: Front-End Lint
           command: |
             echo web:format
 
-      # Format the backend API
+      # Formating the backend API
       - run:
           name: API Lint
           command: |
@@ -51,11 +50,47 @@ jobs:
           command: |
             echo web:build
 
+      # BuiBuildingld the backend API
+      - run:
+          name: API Build
+          command: |
+            echo api:build
+
+  # deploy step will run only after manual approval
+  deploy:
+    docker:
+      - image: "cimg/base:stable"
+      # more setup needed for aws, node, elastic beanstalk
+    steps:
+      - node/install:
+          node-version: "14.15"
+      - eb/setup
+      - aws-cli/setup
+      - checkout
+
+      # Installing dependencies in the frontend app
+      - run:
+          name: Install Front-End Dependencies
+          command: |
+            npm run web:install
+
+      # Building the frontend app
+      - run:
+          name: Front-End Build
+          command: |
+            npm run web:build
+
       # Deploying the frontend app to AWS S3
       - run:
           name: Front-End Deploy
           command: |
             echo web:deploy
+
+      # Installing dependencies in the the backend API
+      - run:
+          name: Install API Dependencies
+          command: |
+            echo npm run api:install
 
       # Building the backend API
       - run:
@@ -68,47 +103,6 @@ jobs:
       #     name: API Deploy
       #     command: |
       #       echo api:deploy
-
-  # deploy step will run only after manual approval
-  # deploy:
-  #   docker:
-  #     - image: "cimg/base:stable"
-  #     # more setup needed for aws, node, elastic beanstalk
-  #   steps:
-  #     - node/install:
-  #         node-version: "14.15"
-  #     - eb/setup
-  #     - aws-cli/setup
-  #     - checkout
-  #     # - run:
-  #     #     name: Deploy App
-  #     #     # TODO: Install, build, deploy in both apps
-  #     #     command: |
-  #     #       echo "# TODO: Install, build, deploy in both apps"
-
-  #     # Building the frontend app
-  #     - run:
-  #         name: Front-End Build
-  #         command: |
-  #           npm run web:build
-
-  #     # Deploying the frontend app to AWS S3
-  #     - run:
-  #         name: Front-End Deploy
-  #         command: |
-  #           echo web:deploy
-
-  #     # Build the backend API
-  #     - run:
-  #         name: API Build
-  #         command: |
-  #           echo api:build
-
-  #     # Deploying the backend API to AWS EB
-  #     # - run:
-  #     #     name: API Deploy
-  #     #     command: |
-  #     #       echo api:deploy
 
 workflows:
   udagram:
