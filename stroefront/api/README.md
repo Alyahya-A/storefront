@@ -74,14 +74,13 @@ npm run db-up # or db-migrate up
 
 ### Configuration
 
-To run the app you need to create `env` file called `config.env` under [src/config](./src/config/) with the following keys:
+To run the app you need to create `env` file called `config.development.env` under [src/config](./src/config/) with the following keys:
 
 | Key               | Value (for demonstration and testing purposes only)                                   |
 | ----------------- | ------------------------------------------------------------------------------------- |
 | POSTGRES_HOST     | Used to create Database Client. Value `localhost`                                     |
 | POSTGRES_PORT     | Database port                                                                         |
 | POSTGRES_DB       | storefront_backend_dev                                                                |
-| POSTGRES_TEST_DB  | storefront_backend_test                                                               |
 | POSTGRES_USER     | `<USERNAME>`                                                                          |
 | POSTGRES_PASSWORD | `<USER_PASSWORD>`                                                                     |
 | ENV               | dev                                                                                   |
@@ -89,13 +88,20 @@ To run the app you need to create `env` file called `config.env` under [src/conf
 | JWT_SECRET        | Secret key. Any text or number you want to add here to create `jwt Token`             |
 | SaltRounds        | Controls how much time is needed to calculate a single BCrypt hash. Set value to `10` |
 
+Each environment has its `env` file:
+
+- `config.development.env`
+- `config.test.env`
+- `config.production.env`
+
+NodeJS we read your config based on `NODE_ENV` value. (see `dev` and `prod` scripts in Scripts).
+
 For **_testing purposes_** you can copy the following values for your `config.env`:
 
 ```
 POSTGRES_HOST=localhost
 POSTGRES_PORT=5432
 POSTGRES_DB=storefront_backend_dev
-POSTGRES_TEST_DB=storefront_backend_test
 POSTGRES_USER=<USERNAME>
 POSTGRES_PASSWORD=<USER_PASSWORD>
 ENV=dev
@@ -103,6 +109,10 @@ PORT=3000
 JWT_SECRET=97D17B58182C4EE9E113E74ABF9E572680D0D898525F2208D7DD191EBFDBF326
 SaltRounds=10
 ```
+
+> Plase note that file [options.json](./.ebextensions/options.json) is used for convenience of local development and _testing purposes_.
+
+> DO NOT STORE YOUR CREDENTIALS INTO GIT
 
 ### Install all dependencies
 
@@ -118,12 +128,17 @@ Here you can find the scripts which may help you. You can run one of the followi
 
 | Script Name  | Description                                                                                                                                                                                      |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| start        | It monitors your project directory and automatically restarts your node application when it detects any changes                                                                                  |
-| build        | Creates a build directory named `dist` with a production build of your app                                                                                                                       |
+| start        | Run the producation app `dist/server.js`                                                                                                                                                         |
+| build        | Creates a build directory named `dist` with a production build for the app then zip the file to `Archive.zip` so that we can deploy the app to `eb`                                              |
 | test         | Set `ENV` to test, run the build script, create a test database called `storefront_backend_test`, runs `migrations --env test`, then run all jasmine spces tests and finally `drop` the database |
 | format:check | Check that all files are formatted and match the prettier code style                                                                                                                             |
 | format:fix   | This rewrites all processed files and formats files in the current directory                                                                                                                     |
 | db-up        | Runs the new `migrations`                                                                                                                                                                        |
+| deploy       | Deploy the app to `Elastic Beanstalk AWS` (`eb`)                                                                                                                                                 |
+| deploy-env   | Upload environment variables to `eb` Environment properties                                                                                                                                      |
+| clean        | Remove `dist` folder                                                                                                                                                                             |
+| dev          | Run the app as in `development` env and monitors your project directory and automatically restarts your node application when it detects any changes                                             |
+| prod         | Run the app as in `production` env and monitors your project directory and automatically restarts your node application when it detects any changes                                              |
 
 ## Start App
 
@@ -227,7 +242,3 @@ Run the following command:
 It sets the environment to `test`, migrates up tables for the test database, runs the test then drops the database.
 
 NOTE: if the test script failed, it will not run to the end. So, to fix that please run this `db-migrate db:drop storefront_backend_test` to remove the database
-
-```
-
-```
