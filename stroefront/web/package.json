@@ -7,6 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "format:check": "prettier --config .prettierrc src/**/*.ts --check",
+    "format:fix": "prettier --config .prettierrc src/**/*.ts --write",
     "deploy": "aws s3 cp --recursive ./dist s3://storefront-web/"
   },
   "private": true,
@@ -36,6 +38,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "prettier": "^2.8.4",
     "typescript": "~4.9.4"
   }
 }
