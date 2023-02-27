@@ -9,7 +9,7 @@
     "test": "ng test",
     "format:check": "prettier --config .prettierrc src/**/*.ts --check",
     "format:fix": "prettier --config .prettierrc src/**/*.ts --write",
-    "deploy": "aws s3 cp --recursive ./dist s3://storefront-web/"
+    "deploy": "aws s3 cp --recursive --acl public-read ./dist s3://storefront-web/"
   },
   "private": true,
   "dependencies": {
