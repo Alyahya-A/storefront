@@ -6,12 +6,13 @@
         "web:test": "cd storefront/web && npm run test",
         "web:e2e": "cd storefront/web && npm run e2e",
         "web:deploy": "cd storefront/web && npm run deploy",
-       
-       
+        "web:format": "cd storefront/web && npm run format:fix",
+        
         "api:install": "cd storefront/api && npm install .",
         "api:build": "cd storefront/api && npm run build",
         "api:start": "cd storefront/api && npm run dev",
         "api:deploy": "cd storefront/api && npm run deploy",
+        "api:format": "cd storefront/api && npm run format:fix",
         "deploy": "npm run api:deploy && npm run web:deploy"
     }
 }
