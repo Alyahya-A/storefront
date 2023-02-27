@@ -1,25 +1,19 @@
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  OnInit,
-  Output
-} from '@angular/core';
-import { UserService } from '../../services/user.service';
+import { Component, ElementRef, EventEmitter, Output } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiError } from 'src/app/models/apiError';
 import { prepareApiError } from 'src/app/utils/prepareApiError';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent implements OnInit {
-  email: string = '';
-  password: string = '';
+export class LoginFormComponent {
+  email = '';
+  password = '';
 
-  hidePassword: boolean = true;
+  hidePassword = true;
 
   apiError: ApiError = new ApiError();
 
@@ -30,8 +24,6 @@ export class LoginFormComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private el: ElementRef
   ) {}
-
-  ngOnInit(): void {}
 
   togglePassword() {
     this.hidePassword = !this.hidePassword;

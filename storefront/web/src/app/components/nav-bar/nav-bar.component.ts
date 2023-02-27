@@ -16,8 +16,6 @@ export class NavBarComponent {
     this.userIsLoggedIn = false;
   }
 
-  ngOnInit(): void {}
-
   logout(): void {
     this.userLoggedOut.emit();
   }

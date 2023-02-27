@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./authenticate.component.css']
 })
 export class AuthenticateComponent {
-  authenticationMode: string = 'sign-in';
+  authenticationMode = 'sign-in';
 
   @Input() redirectPath: string;
   @Output() userUpdated: EventEmitter<void> = new EventEmitter();

@@ -9,7 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent {
-  quantity: string = '1';
+  quantity = '1';
 
   @Input() product: Product;
 

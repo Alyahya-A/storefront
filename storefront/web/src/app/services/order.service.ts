@@ -51,7 +51,7 @@ export class OrderService {
   ): Observable<Order> {
     const cartItems: CartItem[] = this.cartService.getCartItems();
 
-    let products = [];
+    const products = [];
     for (let index = 0; index < cartItems.length; index++) {
       const cartItem = cartItems[index];
       products.push({

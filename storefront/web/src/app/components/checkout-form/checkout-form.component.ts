@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiError } from 'src/app/models/apiError';
@@ -10,10 +10,10 @@ import { prepareApiError } from 'src/app/utils/prepareApiError';
   templateUrl: './checkout-form.component.html',
   styleUrls: ['./checkout-form.component.css']
 })
-export class CheckoutFormComponent implements OnInit {
-  fullname: string = '';
-  address: string = '';
-  creditCard: string = '';
+export class CheckoutFormComponent {
+  fullname = '';
+  address = '';
+  creditCard = '';
 
   apiError: ApiError = new ApiError();
 
@@ -23,8 +23,6 @@ export class CheckoutFormComponent implements OnInit {
     private router: Router,
     private el: ElementRef
   ) {}
-
-  ngOnInit(): void {}
 
   submitForm(): void {
     const spinnerName = 'place-order-spinner';

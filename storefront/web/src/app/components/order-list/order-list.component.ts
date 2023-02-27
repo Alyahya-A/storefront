@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { ApiError } from 'src/app/models/apiError';
 import { Order } from 'src/app/models/order';
 import { Product } from 'src/app/models/product';
@@ -12,7 +11,7 @@ import { prepareApiError } from 'src/app/utils/prepareApiError';
   templateUrl: './order-list.component.html',
   styleUrls: ['./order-list.component.css']
 })
-export class OrderListComponent {
+export class OrderListComponent implements OnInit {
   orders: Order[] = [];
   apiError: ApiError = new ApiError();
 

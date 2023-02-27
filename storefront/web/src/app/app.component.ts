@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CartService } from './services/cart.service';
 import { OrderService } from './services/order.service';
@@ -9,10 +9,10 @@ import { UserService } from './services/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'my-store';
-  totalCartQuantity: number = 0;
-  userIsLoggedIn: boolean = false;
+  totalCartQuantity = 0;
+  userIsLoggedIn = false;
 
   constructor(
     private cartService: CartService,

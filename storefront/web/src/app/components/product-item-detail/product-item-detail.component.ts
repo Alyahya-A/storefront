@@ -13,11 +13,11 @@ import { prepareApiError } from 'src/app/utils/prepareApiError';
   styleUrls: ['./product-item-detail.component.css']
 })
 export class ProductItemDetailComponent implements OnInit {
-  productId: number = 0;
+  productId = 0;
 
   product: Product = new Product();
 
-  quantity: string = '1';
+  quantity = '1';
 
   apiError: ApiError = new ApiError();
 

@@ -12,10 +12,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CartComponent implements OnInit {
   cartItems: CartItem[] = [];
-  totalCartAmount: number = 0;
+  totalCartAmount = 0;
   user: User = new User();
-  isUserLoggedIn: boolean = false;
-  authenticationMode: string = 'sign-in';
+  isUserLoggedIn = false;
+  authenticationMode = 'sign-in';
 
   constructor(
     private cartService: CartService,

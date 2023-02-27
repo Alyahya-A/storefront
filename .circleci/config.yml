@@ -32,11 +32,11 @@ jobs:
           command: |
             echo npm run api:install
 
-      # Formating the frontend prettier
+      # Lint the frontend
       - run:
           name: Front-End Lint
           command: |
-            echo web:format
+            echo web:lint
 
       # Formating the backend API
       - run:

@@ -67,7 +67,7 @@ export class CartService {
   }
 
   getTotalQuantity(): number {
-    let totalQuantityInCart: number = 0;
+    let totalQuantityInCart = 0;
 
     const cartItems = this.getCartItems();
 

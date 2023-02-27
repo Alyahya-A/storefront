@@ -10,12 +10,12 @@ import { prepareApiError } from 'src/app/utils/prepareApiError';
   styleUrls: ['./signup-form.component.css']
 })
 export class SignupFormComponent {
-  firstName: string = '';
-  lastName: string = '';
-  email: string = '';
-  password: string = '';
+  firstName = '';
+  lastName = '';
+  email = '';
+  password = '';
 
-  hidePassword: boolean = true;
+  hidePassword = true;
 
   apiError: ApiError = new ApiError();
 
