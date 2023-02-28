@@ -9,6 +9,7 @@
         "api:install": "cd storefront/api && npm install .",
         "api:build": "cd storefront/api && npm run build",
         "api:start": "cd storefront/api && npm run dev",
+        "api:aws-eb": "cd storefront/api && npm run aws-eb",
         "api:deploy": "cd storefront/api && npm run deploy",
         "api:format": "cd storefront/api && npm run format:fix",
         "deploy": "npm run api:deploy && npm run web:deploy"
