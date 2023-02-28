@@ -54,6 +54,12 @@ jobs:
           command: |
             npm run api:format
 
+      # Installing AWS Elastic Beanstalk CLI
+      - run:
+          name: Installing AWS Elasticbeanstalk
+          command: |
+            npm run backend:aws-eb
+
       # BuiBuildingld the backend API
       - run:
           name: API Build
