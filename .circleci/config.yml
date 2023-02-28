@@ -103,10 +103,10 @@ jobs:
             npm run api:build
 
       # Installing AWS Elastic Beanstalk CLI
-      - run:
-          name: Installing AWS Elasticbeanstalk
-          command: |
-            npm run api:aws-eb
+      # - run:
+      #     name: Installing AWS Elasticbeanstalk
+      #     command: |
+      #       npm run api:aws-eb
 
       # Deploying the backend API to AWS EB
       - run:
@@ -117,15 +117,15 @@ jobs:
 workflows:
   udagram:
     jobs:
-      - build
-      - hold:
-          filters:
-            branches:
-              only:
-                - main
-          type: approval
-          requires:
-            - build
+      # - build
+      # - hold:
+      #     filters:
+      #       branches:
+      #         only:
+      #           - main
+      #     type: approval
+      #     requires:
+      #       - build
       - deploy:
           requires:
             - hold
