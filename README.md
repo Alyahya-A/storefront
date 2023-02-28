@@ -7,6 +7,7 @@ It's an e-commerce software built with Node.js and Angular
     - [Infrastructure](docs/infrastructure.md)
     - [Pipeline](docs/pipeline.md)
     - [Dependencies](docs/dependencies.md)
+    - [Screenshots](#Screenshots)
   - [Installation](#installation)
   - [Testing](#testing)
   - [Unit Tests:](#unit-tests)
@@ -21,6 +22,10 @@ Provision the necessary AWS services needed for running the application:
 1. Export the ENV variables needed or use a package like [dotnev](https://www.npmjs.com/package/dotenv)/.
 1. From the root of the repo, navigate `api` folder `cd storefront/api` to install the node_modules `npm install`. After installation is done go to Api's [README](/storefront/api/README.md) and follow the instructions.
 1. Without closing the terminal in step 1 go back to root of the repo, then navigate to the `web` `cd storefront/web` to intall the node_modules `npm install`. After installation is done start the website in dev mode with `npm run start`.
+
+## Screenshots
+
+You can find screenshots under [imgs/screenshots](imgs/screenshots/)
 
 ## Testing
 

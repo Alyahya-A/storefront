@@ -62,11 +62,11 @@ export class UserController extends BaseHttpController {
     return this.json(allUser, StatusCode.ok);
   }
 
-  // // Get all users
-  // @httpGet('/config')
-  // async config() {
-  //   return this.json(config, StatusCode.ok);
-  // }
+  // Get all users
+  @httpGet('/config')
+  async config() {
+    return this.json(config, StatusCode.ok);
+  }
 
   //  Get user by id
   @httpGet('/:id', TYPES.AuthMiddleware)
