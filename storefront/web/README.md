@@ -1,8 +1,22 @@
 # MyStore Project - Frontend
 
-A shopping site project built with Angular. It's an e-commerce software built based on [Storefront-API](../api/).
+<!-- TOC -->
+
+- [MyStore Project - Frontend](#mystore-project---frontend)
+    - [Overview](#overview)
+        - [Fetures](#fetures)
+    - [Let's start](#lets-start)
+    - [Development server](#development-server)
+    - [Build](#build)
+    - [Environments](#environments)
+    - [Preview](#preview)
+    - [Running unit tests](#running-unit-tests)
+
+<!-- /TOC -->
 
 ## Overview
+
+It's an e-commerce site project built with Angular and based on [Storefront-API](../api/).
 
 ### Fetures
 
@@ -30,30 +44,40 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Environments
+
+Currently there are two environments `dev` and `prod`.
+Environments variables are:
+
+| Variable   | Description                                          |
+| ---------- | ---------------------------------------------------- |
+| production | an `boolean` indicator if app running in prod or not |
+| apiBaseUrl | The base URL of the REST API                         |
+
 ## Preview
 
 Homepage
-![Homepage](../docs/Homepage.PNG)
+![Homepage](../../imgs/Homepage.PNG)
 
 Create a new account
-![Signup](../docs/CreateAccount.PNG)
+![Signup](../../imgs/CreateAccount.PNG)
 
 Login to account
-![Login](../docs/Login.PNG)
+![Login](../../imgs/Login.PNG)
 
 Cart page
-![Cart](../docs/Cart.PNG)
+![Cart](../../imgs/Cart.PNG)
 
 Order Confirmation
-![Confirmation](../docs/Confirmation.PNG)
+![Confirmation](../../imgs/Confirmation.PNG)
 
 Form Validations:
 
 - Form 1
-  ![Form](../docs/FormValidations1.PNG)
+  ![Form](../../imgs/FormValidations1.PNG)
 
 - Form 2
-  ![From2](../docs/FormValidations2.PNG)
+  ![From2](../../imgs/FormValidations2.PNG)
   Validation in `Api` level & frontend `web` level
 
 ## Running unit tests

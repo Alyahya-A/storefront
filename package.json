@@ -4,10 +4,8 @@
         "web:start": "cd storefront/web && npm run start",
         "web:build": "cd storefront/web && npm run build",
         "web:test": "cd storefront/web && npm run test",
-        "web:e2e": "cd storefront/web && npm run e2e",
         "web:deploy": "cd storefront/web && npm run deploy",
         "web:lint": "cd storefront/web && npm run lint:fix",
-        
         "api:install": "cd storefront/api && npm install .",
         "api:build": "cd storefront/api && npm run build",
         "api:start": "cd storefront/api && npm run dev",

@@ -74,7 +74,7 @@ jobs:
 
       # Installing dependencies in the frontend app
       - run:
-          name: Install Front-End Dependencies
+          name: Front-End Install Dependencies
           command: |
             npm run web:install
 
@@ -92,7 +92,7 @@ jobs:
 
       # Installing dependencies in the the backend API
       - run:
-          name: Install API Dependencies
+          name: API Install Dependencies
           command: |
             npm run api:install
 
@@ -100,13 +100,13 @@ jobs:
       - run:
           name: API Build
           command: |
-            npm api:build
+            npm run api:build
 
       # Deploying the backend API to AWS EB
-      # - run:
-      #     name: API Deploy
-      #     command: |
-      #       npm run api:deploy
+      - run:
+          name: API Deploy
+          command: |
+            npm run api:deploy
 
 workflows:
   udagram:

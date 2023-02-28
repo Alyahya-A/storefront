@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AuthenticatedUserGuard } from './authenticated-user.guard';
 
-describe('AuthenticateGuard', () => {
+describe('AuthenticatedUserGuard', () => {
   let guard: AuthenticatedUserGuard;
 
   beforeEach(() => {

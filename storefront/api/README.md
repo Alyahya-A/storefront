@@ -1,5 +1,27 @@
 # Storefront Backend Project
 
+<!-- TOC -->
+
+- [Storefront Backend Project](#storefront-backend-project)
+    - [Overview](#overview)
+    - [Getting Started](#getting-started)
+        - [Local Database](#local-database)
+        - [Server Database](#server-database)
+        - [Migration](#migration)
+            - [Running Migrations:](#running-migrations)
+        - [Configuration](#configuration)
+        - [Install all dependencies](#install-all-dependencies)
+        - [Scripts](#scripts)
+    - [Start App](#start-app)
+    - [How to use](#how-to-use)
+        - [Endpoint Access](#endpoint-access)
+        - [Token and Authentication](#token-and-authentication)
+    - [Errors & Logging](#errors--logging)
+        - [Error codes](#error-codes)
+    - [Testing](#testing)
+
+<!-- /TOC -->
+
 ## Overview
 
 An API project built with Node.js. It's an e-commerce software built based on the [REQUIREMENTS.md](/REQUIREMENTS.md) file.
@@ -12,7 +34,7 @@ Storefront provides stability, high performance, and security.
 This application is run a node.js and provides REST API endpoints.
 To start the application you need to set up and configure your app:
 
-### Database
+### Local Database
 
 The API connects to a PostgreSQL database. So, it's necessary to create a database on your local machine called `storefront_backend_dev`.
 
@@ -22,6 +44,11 @@ The API connects to a PostgreSQL database. So, it's necessary to create a databa
 ```sql
 CREATE DATABASE storefront_backend_dev;
 ```
+
+### Server Database
+
+You can skip the previous step if you don't want to run the database locally on you machine.
+And create the database in cloud using `AWS RDS` or any cloud services.
 
 ### Migration
 
@@ -144,7 +171,7 @@ Here you can find the scripts which may help you. You can run one of the followi
 
 Now the app is ready to run locally, by bellow command:
 
-`npm run start`
+`npm run dev`
 
 App will run on port `3000` and the database runs on port `5432`
 
