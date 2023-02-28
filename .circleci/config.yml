@@ -16,21 +16,19 @@ jobs:
           node-version: "14.20"
       - checkout
 
-      # Installing dependencies in the frontend app
       - run:
-          name: Install Front-End Dependencies
+          name: Image Info
           command: |
             echo "NODE --version" 
             echo $(node --version)
             echo "NPM --version" 
             echo $(npm --version)
-            npm run web:install
 
-      # Installing dependencies in the the backend API
+      # Installing dependencies in the frontend app
       - run:
-          name: Install API Dependencies
+          name: Front-End Install Dependencies
           command: |
-            echo npm run api:install
+            npm run web:install
 
       # Lint the frontend
       - run:
@@ -38,17 +36,23 @@ jobs:
           command: |
             echo web:lint
 
-      # Formating the backend API
-      - run:
-          name: API Lint
-          command: |
-            echo api:format
-
       # Building the frontend app
       - run:
           name: Front-End Build
           command: |
             echo web:build
+
+      # Installing dependencies in the the backend API
+      - run:
+          name: API Install Dependencies
+          command: |
+            echo npm run api:install
+
+      # Formating the backend API
+      - run:
+          name: API Lint
+          command: |
+            echo api:format
 
       # BuiBuildingld the backend API
       - run:
