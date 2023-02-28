@@ -9,4 +9,3 @@ eb setenv POSTGRES_DB=$POSTGRES_DB
 eb setenv POSTGRES_USER=$POSTGRES_USER
 eb setenv JWT_SECRET=$JWT_SECRET
 eb setenv SaltRounds=$SaltRounds
-eb setenv TEST=$TEST

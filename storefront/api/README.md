@@ -10,6 +10,7 @@
         - [Migration](#migration)
             - [Running Migrations:](#running-migrations)
         - [Configuration](#configuration)
+            - [Server Env Variables:](#server-env-variables)
         - [Install all dependencies](#install-all-dependencies)
         - [Scripts](#scripts)
     - [Start App](#start-app)
@@ -101,7 +102,7 @@ npm run db-up # or db-migrate up
 
 ### Configuration
 
-To run the app you need to create `env` file called `config.development.env` under [src/config](./src/config/) with the following keys:
+To run the app in `dev` you need to create `env` file called `config.development.env` under [src/config](./src/config/) with the following keys:
 
 | Key               | Value (for demonstration and testing purposes only)                                   |
 | ----------------- | ------------------------------------------------------------------------------------- |
@@ -121,9 +122,9 @@ Each environment has its `env` file:
 - `config.test.env`
 - `config.production.env`
 
-NodeJS we read your config based on `NODE_ENV` value. (see `dev` and `prod` scripts in Scripts).
+In NodeJS we read the config file based on `NODE_ENV` value. (see `dev` and `prod` scripts in [Scripts](#scripts)).
 
-For **_testing purposes_** you can copy the following values for your `config.env`:
+For **_testing purposes_** you can copy the following values for your `config.development.env`:
 
 ```
 POSTGRES_HOST=localhost
@@ -137,7 +138,19 @@ JWT_SECRET=97D17B58182C4EE9E113E74ABF9E572680D0D898525F2208D7DD191EBFDBF326
 SaltRounds=10
 ```
 
-> Plase note that file [options.json](./.ebextensions/options.json) is used for convenience of local development and _testing purposes_.
+#### Server Env Variables:
+
+We need to configuring environment properties in our AWS Elastic Beanstalk environment.
+So, we added all previous env variables to CircleCi env configuration to automate it with our pipeline (see more about [pipeline](../../docs/pipeline.md)).
+
+All env variables should be configured inside the `CircleCi` or in `.ebextensions/options.json`
+
+1. _**(Recommended)**_ You can configure env variables in the `CircleCi`, and add the variables in [deploy.sh](bin/deploy.sh) to set the env variables from `CircleCi` to `eb` during the deploy phase at our [pipeline](../../docs/pipeline.md)
+2. Or you can configure env variables in [.ebextensions/options.json](./.ebextensions/options.json). And to push the variables to `eb` you must run `deploy-env` locally.
+
+   > Plase note that file [.ebextensions/options.json](./.ebextensions/options.json) is used for convenience of local development and _testing purposes_.
+
+&nbsp;
 
 > DO NOT STORE YOUR CREDENTIALS INTO GIT
 
